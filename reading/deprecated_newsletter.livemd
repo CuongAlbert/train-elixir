@@ -34,9 +34,9 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-* How do we use Swoosh and SendGrid to send emails?
-* How do we configure environment variables?
-* How do we use Oban to schedule jobs?
+- How do we use Swoosh and SendGrid to send emails?
+- How do we configure environment variables?
+- How do we use Oban to schedule jobs?
 
 ## Overview
 
@@ -163,7 +163,7 @@ Then try calling the `welcome/1` function with a user map. You'll see the result
 <!-- livebook:{"force_markdown":true} -->
 
 ```elixir
-iex> email = Newsletter.Emails.welcome(%{name: "example name", email: "example@example.com"})  
+iex> email = Newsletter.Emails.welcome(%{name: "example name", email: "example@example.com"})
 %Swoosh.Email{
   subject: "Welcome to the DockYard Academy Newsletter",
   from: {"sender name", "senders@sender_domain.com"},
@@ -503,7 +503,7 @@ After five seconds you should see the printed inspect value.
 PERFORMING JOB: %{"email" => "example", "name" => "example"}
 ```
 
-Now when we schedule the job, we want to send an email. We could write some code to create a custom daily email, but that's beyond the scope of this demonstration. Instead, we'll re-use the `welcome` email.
+Now when we schedule the job, we want to send an email. We could write some code to create a custom daily email, but that's beyond the scope of this demonstration. Instead, we'll reuse the `welcome` email.
 
 Replace the `perform/1` function with the following.
 
@@ -581,7 +581,7 @@ Now, we want to schedule this recurring email when a user signs up. Add the foll
     case Subscribers.create_subscriber(subscriber_params) do
       {:ok, subscriber} ->
         # send the DailyNewsLetter immediately, then schedule recurring job.
-        Newsletter.Workers.DailyNewsletter.new(%{name: subscriber.name, email: subscriber.email})        
+        Newsletter.Workers.DailyNewsletter.new(%{name: subscriber.name, email: subscriber.email})
         |> Oban.insert!()
 
         conn
@@ -663,8 +663,8 @@ This newsletter can serve as a project for your future portfolio.
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-* [HexDocs: Oban](https://hexdocs.pm/oban/Oban.html)
-* [HexDocs: Swoosh](https://hexdocs.pm/swoosh/Swoosh.html)
+- [HexDocs: Oban](https://hexdocs.pm/oban/Oban.html)
+- [HexDocs: Swoosh](https://hexdocs.pm/swoosh/Swoosh.html)
 
 ## Commit Your Progress
 

@@ -87,7 +87,7 @@ Worker pools typically have a finite number of workers. A limited worker pool he
 
 We use named processes in this reading material. If a named process is already started and you re-evaluate a code example you may see the following error.
 
-> ** (MatchError) no match of right hand side value: {:error, {:already_started, #PID<0.265.0>}}
+> \*\* (MatchError) no match of right hand side value: {:error, {:already_started, #PID<0.265.0>}}
 > reading/worker_pools.livemd#cell:oc2mtzukw3gd7z2s5oyguox4qdpegr7a:3: PoolManager.start_link/1
 > /home/brook/dockyard/curriculum/reading/worker_pools.
 > livemd#cell:ynvusqt7eiocyatfupox6d2pqqpiwwf4:2: (file)
@@ -294,7 +294,7 @@ defmodule Worker do
   def init(opts) do
     # Register the Worker under the PoolManager
     # We've made the : Registry configurable.
-    # While not necessary, this makes our worker re-usable throughout our registry examples.
+    # While not necessary, this makes our worker reusable throughout our registry examples.
     registry = opts[:registry] || PoolManager
     Registry.register(registry, :workers, nil)
 
@@ -450,7 +450,7 @@ defmodule SupervisedPool do
 
   @impl true
   def init(_opts) do
-    # System.schedulers_online() returns the number of 
+    # System.schedulers_online() returns the number of
     # available schedulers on the current machine.
     child_specs =
       Enum.map(1..System.schedulers_online(), fn n ->
@@ -510,11 +510,11 @@ Poolboy is a reliable alternative to implementing a custom process pool that sav
 
 We can specify the following configuration for the process pool.
 
-* `:name`: The name of the pool. The scope can be either `:local`, `:global`, or `:via`.
-* `:worker_module`: The module used to create workers for the pool.
-* `:size`: The maximum number of workers allowed in the pool.
-* `:max_overflow` (optional): The maximum number of temporary workers that can be created when the pool is empty.
-* `:strategy` (optional): Determines whether workers that return to the pool should be placed first or last in the line of available workers, with two possible values: `:lifo` or `:fifo`. The default is `:lifo`.
+- `:name`: The name of the pool. The scope can be either `:local`, `:global`, or `:via`.
+- `:worker_module`: The module used to create workers for the pool.
+- `:size`: The maximum number of workers allowed in the pool.
+- `:max_overflow` (optional): The maximum number of temporary workers that can be created when the pool is empty.
+- `:strategy` (optional): Determines whether workers that return to the pool should be placed first or last in the line of available workers, with two possible values: `:lifo` or `:fifo`. The default is `:lifo`.
 
 ```elixir
 poolboy_config = [
@@ -580,8 +580,8 @@ Add the Poolboy dependency to a mix project and start a worker pool under your a
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-* [Process pools with Elixir's Registry by Andrea Leopardi](https://andrealeopardi.com/posts/process-pools-with-elixirs-registry/)
-* [Managing processes with Poolboy in Elixir by Akash Manohar](https://hashnuke.com/2013/10/03/managing-processes-with-poolboy-in-elixir.html)
+- [Process pools with Elixir's Registry by Andrea Leopardi](https://andrealeopardi.com/posts/process-pools-with-elixirs-registry/)
+- [Managing processes with Poolboy in Elixir by Akash Manohar](https://hashnuke.com/2013/10/03/managing-processes-with-poolboy-in-elixir.html)
 
 ## Commit Your Progress
 

@@ -36,9 +36,9 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-* What are integers and floats?
-* What are arithmetic operators?
-* What is the order of operations, and how can you alter it using round brackets `()`?
+- What are integers and floats?
+- What are arithmetic operators?
+- What is the order of operations, and how can you alter it using round brackets `()`?
 
 ## Overview
 
@@ -250,7 +250,7 @@ Elixir lets you know why with an error message.
 ```
 
 As mentioned, adding floats together may result in floating point errors, so only use them
-when a small amount of innaccuracy isn't an issue.
+when a small amount of inaccuracy isn't an issue.
 
 ```elixir
 1.2 + 1.4
@@ -440,7 +440,7 @@ In the Elixir cell below, Use the `**` operator to determine `10` to the power o
 Calculations in Elixir follow the **BEDMAS** order of operations.
 **BEDMAS** stands for brackets, exponents, division, multiplication, addition, and subtraction.
 
-That means that the following will evaluate 5 * 2 before 5 + 5.
+That means that the following will evaluate 5 \* 2 before 5 + 5.
 
 <!-- livebook:{"force_markdown":true} -->
 
@@ -608,10 +608,10 @@ rem(10, 3)
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-* [Elixir-lang: Basic Arithmetic](https://elixir-lang.org/getting-started/basic-types.html#basic-arithmetic)
-* [ElixirSchool: Integers](https://elixirschool.com/en/lessons/basics/basics/#integers-4)
-* [Exercism: Integers](https://exercism.org/tracks/elixir/concepts/integers)
-* [Exercism: Floats](https://exercism.org/tracks/elixir/concepts/floating-point-numbers)
+- [Elixir-lang: Basic Arithmetic](https://elixir-lang.org/getting-started/basic-types.html#basic-arithmetic)
+- [ElixirSchool: Integers](https://elixirschool.com/en/lessons/basics/basics/#integers-4)
+- [Exercism: Integers](https://exercism.org/tracks/elixir/concepts/integers)
+- [Exercism: Floats](https://exercism.org/tracks/elixir/concepts/floating-point-numbers)
 
 ## Commit Your Progress
 
