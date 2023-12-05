@@ -205,6 +205,8 @@ map[:hello]
 
 ```elixir
 map = %{hello: "world"}
+map.hello
+map[:hello]
 ```
 
 ### Updating Maps
@@ -265,7 +267,8 @@ todo = %{title: "finish maps exercise", completed: false}
 </details>
 
 ```elixir
-
+map = %{title: "finish maps exercises", completed: false}
+todo = %{map | completed: true}
 ```
 
 ## Pattern Matching
