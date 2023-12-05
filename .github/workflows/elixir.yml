@@ -92,6 +92,9 @@ jobs:
         with:
           elixir-version: ${{ matrix.elixir }} # Define the elixir version [required]
           otp-version: ${{ matrix.otp }} # Define the OTP version [required]
+      - name: Install dependencies
+        working-directory: ./utils
+        run: mix deps.get
       - name: Run all tasks
         working-directory: ./utils
         run: mix all_tasks
