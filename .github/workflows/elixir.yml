@@ -74,9 +74,6 @@ jobs:
       - name: Check compilation warnings
         working-directory: ./utils
         run: mix compile --warnings-as-errors
-      - name: Run all tasks
-        working-directory: ./utils
-        run: mix all_tasks
       - name: Run tests
         working-directory: ./utils
         run: mix test --exclude=skip_ci --warnings-as-errors
@@ -86,6 +83,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Run all tasks
+        working-directory: ./utils
+        run: mix all_tasks
       - uses: codespell-project/actions-codespell@master
         with:
           check_filenames: true
