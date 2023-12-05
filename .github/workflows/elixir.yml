@@ -74,7 +74,7 @@ jobs:
       - name: Check compilation warnings
         working-directory: ./utils
         run: mix compile --warnings-as-errors
-      - name: Check compilation warnings
+      - name: Run all tasks
         working-directory: ./utils
         run: mix all_tasks
       - name: Run tests

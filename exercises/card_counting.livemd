@@ -84,7 +84,7 @@ high = 1
 Enter your solution below.
 
 ```elixir
-nomal = 0
+normal = 0
 low = -1
 high = 1
 ```
@@ -151,7 +151,7 @@ Enter your solution below.
 
 ```elixir
 count = 0
-count + 5 * high + 2 * low + 2 * nomal
+count + 5 * high + 2 * low + 2 * normal
 ```
 
 ## Bonus: Determining Card Values
@@ -202,7 +202,7 @@ cards =
     cond do
       card <= 6 -> low
       card >= 10 -> high
-      true -> nomal
+      true -> normal
     end
   end)
 
