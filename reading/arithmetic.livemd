@@ -36,9 +36,9 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- What are integers and floats?
-- What are arithmetic operators?
-- What is the order of operations, and how can you alter it using round brackets `()`?
+* What are integers and floats?
+* What are arithmetic operators?
+* What is the order of operations, and how can you alter it using round brackets `()`?
 
 ## Overview
 
@@ -608,10 +608,10 @@ rem(10, 3)
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [Elixir-lang: Basic Arithmetic](https://elixir-lang.org/getting-started/basic-types.html#basic-arithmetic)
-- [ElixirSchool: Integers](https://elixirschool.com/en/lessons/basics/basics/#integers-4)
-- [Exercism: Integers](https://exercism.org/tracks/elixir/concepts/integers)
-- [Exercism: Floats](https://exercism.org/tracks/elixir/concepts/floating-point-numbers)
+* [Elixir-lang: Basic Arithmetic](https://elixir-lang.org/getting-started/basic-types.html#basic-arithmetic)
+* [ElixirSchool: Integers](https://elixirschool.com/en/lessons/basics/basics/#integers-4)
+* [Exercism: Integers](https://exercism.org/tracks/elixir/concepts/integers)
+* [Exercism: Floats](https://exercism.org/tracks/elixir/concepts/floating-point-numbers)
 
 ## Commit Your Progress
 

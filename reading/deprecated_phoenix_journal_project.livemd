@@ -34,8 +34,8 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- How do we generate a resource in a Phoenix application?
-- What is the router, and how do we define routes in a Phoenix application?
+* How do we generate a resource in a Phoenix application?
+* What is the router, and how do we define routes in a Phoenix application?
 
 ## Overview
 
@@ -45,10 +45,10 @@ By default, [Ecto](https://hexdocs.pm/ecto/Ecto.html) uses a [PostgreSQL](https:
 
 [Ecto](https://hexdocs.pm/ecto/Ecto.html) splits into four main modules.
 
-- [Ecto.Repo](https://hexdocs.pm/ecto/Ecto.Repo.html) handles all communication between the application and the database. `Ecto.Repo` reads and writes from the underlying PostgreSQL database.
-- [Ecto.Query](https://hexdocs.pm/ecto/Ecto.Query.html) built queries to retrieve and manipulate data with the `Ecto.Repo` repository.
-- [Ecto.Schema](https://hexdocs.pm/ecto/Ecto.Schema.html) maps the application struct data representation to the underlying PostgreSQL database representation.
-- [Ecto.Changeset](https://hexdocs.pm/ecto/Ecto.Changeset.html) creates changesets for validating and applying constraints to structs.
+* [Ecto.Repo](https://hexdocs.pm/ecto/Ecto.Repo.html) handles all communication between the application and the database. `Ecto.Repo` reads and writes from the underlying PostgreSQL database.
+* [Ecto.Query](https://hexdocs.pm/ecto/Ecto.Query.html) built queries to retrieve and manipulate data with the `Ecto.Repo` repository.
+* [Ecto.Schema](https://hexdocs.pm/ecto/Ecto.Schema.html) maps the application struct data representation to the underlying PostgreSQL database representation.
+* [Ecto.Changeset](https://hexdocs.pm/ecto/Ecto.Changeset.html) creates changesets for validating and applying constraints to structs.
 
 [Phoenix](https://hexdocs.pm/phoenix/Phoenix.html) uses [Ecto](https://hexdocs.pm/ecto/Ecto.html) to handle the data layer of a web application.
 
@@ -100,18 +100,18 @@ $ mix phx.gen.html Entries Entry entries title:string content:text
 
 The `mix phx.gen.html` command accepts several arguments.
 
-- The context: `Entries`.
-- The schema module: `Entry`.
-- The table name and an optional list of attributes and their types: `entries title:string content:text`
+* The context: `Entries`.
+* The schema module: `Entry`.
+* The table name and an optional list of attributes and their types: `entries title:string content:text`
 
 This command creates several modules and files.
 
-- The `JournalWeb.EntryController` controller module.
-- The `JournalWeb.EntryView` view module.
-- The `Journal.Entries` context file.
-- Templates for the entry CRUD actions.
-- A migration file that creates the entries table in PostgreSQL.
-- Several test files.
+* The `JournalWeb.EntryController` controller module.
+* The `JournalWeb.EntryView` view module.
+* The `Journal.Entries` context file.
+* Templates for the entry CRUD actions.
+* A migration file that creates the entries table in PostgreSQL.
+* Several test files.
 
 We can see the exact files created in the output.
 
@@ -323,11 +323,11 @@ See [Phoenix.Router.resources/4](https://hexdocs.pm/phoenix/Phoenix.Router.html#
 
 The main HTTP actions are GET, POST, PATCH, PUT, and DELETE. They generally refer to different intentions for manipulating a resource, such as our journal entries.
 
-- GET: retrieve a resource.
-- POST: submit a resource.
-- PATCH: partially modify a resource.
-- PUT: completely replace a resource.
-- DELETE: delete a resource.
+* GET: retrieve a resource.
+* POST: submit a resource.
+* PATCH: partially modify a resource.
+* PUT: completely replace a resource.
+* DELETE: delete a resource.
 
 We can see the generated routes by running the following command.
 
@@ -594,11 +594,11 @@ The [Ecto.Repo](https://hexdocs.pm/ecto/Ecto.Repo.html#c:insert/2) module define
 
 In our `Entries` context, we see some common functions:
 
-- [Repo.all](https://hexdocs.pm/ecto/Ecto.Repo.html#c:all/2): get all records.
-- [Repo.get!](https://hexdocs.pm/ecto/Ecto.Repo.html#c:get!/3): get one record.
-- [Repo.insert/2](https://hexdocs.pm/ecto/Ecto.Repo.html#c:insert/2): insert a record.
-- [Repo.update](https://hexdocs.pm/ecto/Ecto.Repo.html#c:update/2): update existing record.
-- [Repo.delete](https://hexdocs.pm/ecto/Ecto.Repo.html#c:delete/2): delete record.
+* [Repo.all](https://hexdocs.pm/ecto/Ecto.Repo.html#c:all/2): get all records.
+* [Repo.get!](https://hexdocs.pm/ecto/Ecto.Repo.html#c:get!/3): get one record.
+* [Repo.insert/2](https://hexdocs.pm/ecto/Ecto.Repo.html#c:insert/2): insert a record.
+* [Repo.update](https://hexdocs.pm/ecto/Ecto.Repo.html#c:update/2): update existing record.
+* [Repo.delete](https://hexdocs.pm/ecto/Ecto.Repo.html#c:delete/2): delete record.
 
 These cover the full range of CRUD (create, read, update, delete) actions.
 
@@ -996,9 +996,9 @@ Since we removed the main page from the project, we no longer need the `PageCont
 
 Remove the following files/folders:
 
-- `test/journal/controllers/page_controller.ex`
-- `test/journal_web/controllers/page_controller_test.ex`
-- `test/journal/templates/page`
+* `test/journal/controllers/page_controller.ex`
+* `test/journal_web/controllers/page_controller_test.ex`
+* `test/journal/templates/page`
 
 Ensure that all tests pass.
 
@@ -1019,9 +1019,9 @@ Now you can create a `journal` repository on [GitHub](https://github.com/) and p
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [Phoenix Generators: mix phx.gen](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#content)
-- [Phoenix HTML Generator: mix phx.gen.html](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#content)
-- [Phoenix Schema Generator Types](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html#module-attributes)
+* [Phoenix Generators: mix phx.gen](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#content)
+* [Phoenix HTML Generator: mix phx.gen.html](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.html#content)
+* [Phoenix Schema Generator Types](https://hexdocs.pm/phoenix/Mix.Tasks.Phx.Gen.Schema.html#module-attributes)
 
 ## Commit Your Progress
 

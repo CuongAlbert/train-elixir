@@ -34,8 +34,8 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- How do we use tasks to leverage concurrency?
-- How do we use tasks to send one-off fire-and-forget jobs?
+* How do we use tasks to leverage concurrency?
+* How do we use tasks to send one-off fire-and-forget jobs?
 
 ## Task
 
@@ -261,9 +261,9 @@ In the Elixir cell below, spawn a task which takes one second to complete.
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [HexDocs: Task](https://hexdocs.pm/elixir/Task.html)
-- [ElixirSchools: Task](https://elixirschool.com/en/lessons/intermediate/concurrency#tasks-5)
-- [Exercism: Task](https://exercism.org/tracks/elixir/concepts/tasks)
+* [HexDocs: Task](https://hexdocs.pm/elixir/Task.html)
+* [ElixirSchools: Task](https://elixirschool.com/en/lessons/intermediate/concurrency#tasks-5)
+* [Exercism: Task](https://exercism.org/tracks/elixir/concepts/tasks)
 
 ## Commit Your Progress
 

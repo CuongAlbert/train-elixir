@@ -33,10 +33,10 @@ Mix.install([
 
 ## Review Questions
 
-- What are the **front** and **back** of a queue?
-- What is $O(1)$ performance vs $O(n)$ performance?
-- What is the ideal vs worst-case performance of an amortized queue? When does the worst-case condition occur?
-- How do queues vs double-ended queues (DEQs) differ in how they rebalance a queue?
+* What are the **front** and **back** of a queue?
+* What is $O(1)$ performance vs $O(n)$ performance?
+* What is the ideal vs worst-case performance of an amortized queue? When does the worst-case condition occur?
+* How do queues vs double-ended queues (DEQs) differ in how they rebalance a queue?
 
 ## Overview
 
@@ -548,13 +548,13 @@ Erlang provides a [:queue](https://www.erlang.org/doc/man/queue.html) module wit
 
 It provides the following functions for inserting and removing elements.
 
-- [in/2](https://www.erlang.org/doc/man/queue.html#in-2) insert an element to the **back** of the queue.
-- [out/2](https://www.erlang.org/doc/man/queue.html#out-2) removes an element from the **front** of the queue.
+* [in/2](https://www.erlang.org/doc/man/queue.html#in-2) insert an element to the **back** of the queue.
+* [out/2](https://www.erlang.org/doc/man/queue.html#out-2) removes an element from the **front** of the queue.
 
 Then there are "reversed" versions which perform the opposite operations of a normal queue.
 
-- [in_r/2](https://www.erlang.org/doc/man/queue.html#in_r-2) insert an element to the **front** of the queue.
-- [out_r/1](https://www.erlang.org/doc/man/queue.html#out_r-1) remove an element from the **back** of the queue.
+* [in_r/2](https://www.erlang.org/doc/man/queue.html#in_r-2) insert an element to the **front** of the queue.
+* [out_r/1](https://www.erlang.org/doc/man/queue.html#out_r-1) remove an element from the **back** of the queue.
 
 ```elixir
 q = :queue.new()
@@ -731,10 +731,10 @@ PriorityQueue.remove(priority_queue)
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [Chris Okasaki's Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/students/okasaki.pdf)
-- [Thundering Herd Problem](https://en.wikipedia.org/wiki/Thundering_herd_problem)
-- [erlang: queue](https://www.erlang.org/doc/man/queue.html)
-- [OPQ](https://github.com/fredwu/opq)
+* [Chris Okasaki's Purely Functional Data Structures](https://www.cs.cmu.edu/~rwh/students/okasaki.pdf)
+* [Thundering Herd Problem](https://en.wikipedia.org/wiki/Thundering_herd_problem)
+* [erlang: queue](https://www.erlang.org/doc/man/queue.html)
+* [OPQ](https://github.com/fredwu/opq)
 
 ## Commit Your Progress
 

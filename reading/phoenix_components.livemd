@@ -35,9 +35,9 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- How do we create a form in a Phoenix application?
-- What is a form action and how is it triggered?
-- How do we validate data and display errors in a form using changesets?
+* How do we create a form in a Phoenix application?
+* What is a form action and how is it triggered?
+* How do we validate data and display errors in a form using changesets?
 
 ## Overview
 
@@ -182,17 +182,17 @@ Components defined in the `core_components.ex` file in a Phoenix application are
 
 Here are the main components you'll often use:
 
-- modal
-- simple_form
-- button
-- input
-- label
-- error
-- header
-- table
-- list
-- back
-- icon
+* modal
+* simple_form
+* button
+* input
+* label
+* error
+* header
+* table
+* list
+* back
+* icon
 
 These components are not documented in the Phoenix docs, because they are defined inside of your application when you generate a Phoenix 1.7 application.
 
@@ -274,8 +274,8 @@ For example, the `simple_form/1` component in `core_components.ex` relies on the
 
 Here are some useful components to be aware of:
 
-- [form/1](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#form/1)
-- [link/1](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#link/1)
+* [form/1](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#form/1)
+* [link/1](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#link/1)
 
 See [components](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html#components) for more.
 
@@ -340,9 +340,9 @@ The [Phoenix.HTML](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html) project al
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [Phoenix.Component](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html)
-- [Phoenix.LiveView.JS](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.JS.html)
-- [Phoenix.HTML](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html)
+* [Phoenix.Component](https://hexdocs.pm/phoenix_live_view/Phoenix.Component.html)
+* [Phoenix.LiveView.JS](https://hexdocs.pm/phoenix_live_view/Phoenix.LiveView.JS.html)
+* [Phoenix.HTML](https://hexdocs.pm/phoenix_html/Phoenix.HTML.html)
 
 ## Commit Your Progress
 

@@ -34,10 +34,10 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- How do we create a foreign key reference in a migration?
-- How do we associate two records in a schema?
-- How do we write tests for associated records?
-- How do we preload associated data?
+* How do we create a foreign key reference in a migration?
+* How do we associate two records in a schema?
+* How do we write tests for associated records?
+* How do we preload associated data?
 
 ## Overview
 
@@ -371,9 +371,9 @@ end
 
 Associated data needs to be sent in an HTTP request. There are a few main ways to include this data:
 
-- body params in the form
-- URL params
-- query params
+* body params in the form
+* URL params
+* query params
 
 <!-- livebook:{"break_markdown":true} -->
 
@@ -464,10 +464,10 @@ end
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [Ecto.Query](https://hexdocs.pm/ecto/Ecto.Query.html)
-- [Elixir Schools: Associations](https://elixirschool.com/en/lessons/ecto/associations)
-- [Elixir Schools: Querying#preloading](https://elixirschool.com/en/lessons/ecto/querying_basics#preloading-9)
-- [Elixir Forum: build_assoc vs put_assoc vs cast_assoc](https://elixirforum.com/t/confussed-with-build-assoc-vs-put-assoc-vs-cast-assoc/29116)
+* [Ecto.Query](https://hexdocs.pm/ecto/Ecto.Query.html)
+* [Elixir Schools: Associations](https://elixirschool.com/en/lessons/ecto/associations)
+* [Elixir Schools: Querying#preloading](https://elixirschool.com/en/lessons/ecto/querying_basics#preloading-9)
+* [Elixir Forum: build_assoc vs put_assoc vs cast_assoc](https://elixirforum.com/t/confussed-with-build-assoc-vs-put-assoc-vs-cast-assoc/29116)
 
 ## Commit Your Progress
 

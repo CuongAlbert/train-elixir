@@ -35,9 +35,9 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- How do we define a function?
-- How do we call a function?
-- How do we use the pipe operator `|>` to pipe function calls into each other?
+* How do we define a function?
+* How do we call a function?
+* How do we use the pipe operator `|>` to pipe function calls into each other?
 
 ## Functions
 

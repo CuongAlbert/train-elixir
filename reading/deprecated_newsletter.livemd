@@ -34,9 +34,9 @@ Mix.install([
 
 Upon completing this lesson, a student should be able to answer the following questions.
 
-- How do we use Swoosh and SendGrid to send emails?
-- How do we configure environment variables?
-- How do we use Oban to schedule jobs?
+* How do we use Swoosh and SendGrid to send emails?
+* How do we configure environment variables?
+* How do we use Oban to schedule jobs?
 
 ## Overview
 
@@ -663,8 +663,8 @@ This newsletter can serve as a project for your future portfolio.
 
 Consider the following resource(s) to deepen your understanding of the topic.
 
-- [HexDocs: Oban](https://hexdocs.pm/oban/Oban.html)
-- [HexDocs: Swoosh](https://hexdocs.pm/swoosh/Swoosh.html)
+* [HexDocs: Oban](https://hexdocs.pm/oban/Oban.html)
+* [HexDocs: Swoosh](https://hexdocs.pm/swoosh/Swoosh.html)
 
 ## Commit Your Progress
 
