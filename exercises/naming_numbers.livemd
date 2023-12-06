@@ -84,7 +84,22 @@ naming_numbers.(1)
 Enter your solution below.
 
 ```elixir
+naming_numbers = fn int ->
+  case int do
+    9 -> "nine"
+    8 -> "eight"
+    7 -> "seven"
+    6 -> "six"
+    5 -> "five"
+    4 -> "four"
+    3 -> "three"
+    2 -> "two"
+    1 -> "one"
+    0 -> "zero"
+  end
+end
 
+naming_numbers.(0)
 ```
 
 ## Numbering Names
@@ -181,7 +196,24 @@ flowchart
 </details>
 
 ```elixir
+numbering_names = fn int_str ->
+  str = String.downcase(int_str)
 
+  cond do
+    str == "zero" -> 0
+    str == "one" -> 1
+    str == "two" -> 2
+    str == "three" -> 3
+    str == "four" -> 4
+    str == "five" -> 5
+    str == "six" -> 6
+    str == "seven" -> 7
+    str == "eight" -> 8
+    str == "nine" -> 9
+  end
+end
+
+numbering_names.("NINE")
 ```
 
 ## Commit Your Progress
