@@ -120,7 +120,7 @@ end
 Call the `MutliParamExample.call/3` function with different arguments.
 
 ```elixir
-
+MultiParamExample.call(1, 2, 3)
 ```
 
 ## Internal Module Functions
@@ -134,8 +134,8 @@ defmodule InternalExample do
   end
 
   def public do
-    InternalExample.internal()
-    internal()
+    # InternalExample.internal()
+    # internal()
     "public finished executing"
   end
 end
@@ -230,7 +230,7 @@ HigherOrder.higher_order_function(&Callback.callback_function/0)
 Notice we cannot simply pass `Callback.callback_function` as an argument.
 
 ```elixir
-HigherOrder.higher_order_function(Callback.callback_function())
+HigherOrder.higher_order_function(&Callback.callback_function/0)
 ```
 
 Alternatively, we can wrap the callback function in an anonymous function.
@@ -318,7 +318,11 @@ end
 Enter your solution below.
 
 ```elixir
-
+defmodule Languages.Vietnamese do
+  def greeting do
+    "Xin chao"
+  end
+end
 ```
 
 ### Nested Modules
@@ -357,8 +361,8 @@ We use the `@` symbol to define a compile-time module attribute.
 
 ```elixir
 defmodule Hero do
-  @name "Spider-Man"
-  @nemesis "Green Goblin"
+  @name "Gildu"
+  @nemesis "Grakk"
 
   def introduce do
     "Hello, my name is #{@name}!"
@@ -477,7 +481,7 @@ defmodule MultipleFunctionClauses do
   end
 end
 
-MultipleFunctionClauses.my_function(1)
+MultipleFunctionClauses.my_function()
 ```
 
 Each function clause has a different **arity**. We can treat each function with a different arity as a completely separate function. In Elixir, we ofen refer to functions by their name and arity.
@@ -516,7 +520,34 @@ end
 </details>
 
 ```elixir
+defmodule Math do
+  @moduledoc """
+  Math
 
+  Creat Math module
+  Each should add all of its param together
+  """
+
+  @doc """
+  Returns sum of two params.
+  ## Example
+    iex> Math.add(2,5)
+    7
+  """
+  def add(int1, int2) do
+    int1 + int2
+  end
+
+  @doc """
+  Return sum of three params
+  ## Example
+    iex> Math.add(1,2,3)
+    6
+  """
+  def add(int1, int2, int3) do
+    int1 + int2 + int3
+  end
+end
 ```
 
 ## Default Arguments
@@ -583,7 +614,14 @@ Greeting.hello("Andrew")
 ```
 
 ```elixir
+defmodule Greeting do
+  def hello(name \\ "Jon") do
+    "Hello #{name}"
+  end
+end
 
+Greeting.hello()
+Greeting.hello("Andrew")
 ```
 
 ## Documentation
@@ -668,7 +706,7 @@ defmodule DoctestFailure do
     "expected return value"
   """
   def test do
-    "actual return value"
+    "expected return value"
   end
 end
 ```
@@ -696,25 +734,24 @@ If this is the case, you either have to fix your code, or remove/comment the cra
 Uncomment the following code and evaluate the cell to see an example. Re-comment your code to avoid crashing the livebook as you continue with the lesson.
 
 ```elixir
-# defmodule DoctestCrash Do
-# @moduledoc """
-# DoctestCrash
+defmodule DoctestCrash do
+  @moduledoc """
+  DoctestCrash
 
-# Explains Doctest Crashes With Examples
-# """
+  Explains Doctest Crashes With Examples
+  """
 
-# @doc """
-# Purposely Crashes Doctest Using Invalid Pattern Matching
+  @doc """
+  Purposely Crashes Doctest Using Invalid Pattern Matching
 
-# ## Examples
+  ## Examples
 
-# iex> {} = DoctestCrash.crash()
-# "2"
-# """
-# def crash do
-
-# end
-# end
+    iex> {} = DoctestCrash.crash()
+    "2"
+  """
+  def crash do
+  end
+end
 ```
 
 ### Your Turn
