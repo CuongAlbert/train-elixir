@@ -119,6 +119,7 @@ elem(tuple, 3)
 
 ```elixir
 tuple = {0, 4, 1, 100, 5, 7}
+elem(tuple, 3)
 ```
 
 ## Checking Types
@@ -159,31 +160,31 @@ is_atom(:example)
 ```
 
 ```elixir
-%{}
+is_map(%{})
 ```
 
 ```elixir
-{}
+is_tuple({})
 ```
 
 ```elixir
-[]
+is_list([])
 ```
 
 ```elixir
-true
+is_boolean(true)
 ```
 
 ```elixir
-1.0
+is_float(1.0)
 ```
 
 ```elixir
-1
+is_integer(1)
 ```
 
 ```elixir
-""
+is_binary("")
 ```
 
 The [Kernel](https://hexdocs.pm/elixir/Kernel.html) is reasonably large. Remember, our goal is not to memorize every function but to develop familiarity with repeated practice.
@@ -223,7 +224,7 @@ Enter your solution below. if `seconds` is less than `0` `capped_seconds` should
 
 ```elixir
 seconds = 60
-capped_seconds = nil
+capped_seconds = max(min(seconds, 59), 0)
 ```
 
 ## Safe Inspection
@@ -272,7 +273,7 @@ map = %{}
 list = [1, 2, 3]
 tuple = {1, 2, 3}
 
-""
+"#{inspect(tuple)}"
 ```
 
 ## The Integer Module
@@ -296,7 +297,7 @@ Integer.undigits([1, 2, 3, 4, 5, 6, 7, 8, 9])
 We can use [Integer.parse/2](https://hexdocs.pm/elixir/Integer.html#parse/2) to parse an integer from a string. It returns a `{integer, rest_of_string}` tuple.
 
 ```elixir
-Integer.parse("2")
+Integer.parse("2hs90")
 ```
 
 That makes it especially useful when we have a string with non-integer input such as a newline character `\n`.
@@ -353,7 +354,7 @@ Use the [Integer.gcd/2](https://hexdocs.pm/elixir/Integer.html#gcd/2) function t
 positive integer that divides both 10 and 15 evenly, so the result should be `5`.
 
 ```elixir
-
+Integer.gcd(10, 15)
 ```
 
 ## The String Module
@@ -434,7 +435,7 @@ String.at("hello", 2)
 </details>
 
 ```elixir
-"hello"
+String.at("hello", 2)
 ```
 
 Use the [String.at/2](https://hexdocs.pm/elixir/String.html#at/2) function to retrieve the letter `"o"` in `"hello"`
@@ -449,7 +450,7 @@ String.at("hello", 4)
 </details>
 
 ```elixir
-"hello"
+String.at("hello", -1)
 ```
 
 Use the [String.contains?/2](https://hexdocs.pm/elixir/String.html#contains?/2) function to determine if `"hello"` contains `"lo"`. The result should be `true`.
@@ -464,7 +465,7 @@ String.contains("hello", "lo")
 </details>
 
 ```elixir
-"Hello"
+String.contains?("Hello", "lo")
 ```
 
 Use [String.capitalize/2](https://hexdocs.pm/elixir/String.html#capitalize/2) to capitalize `"hello"` to `"Hello"`.
@@ -479,7 +480,7 @@ String.capitalize("hello")
 </details>
 
 ```elixir
-"hello"
+String.capitalize("hello")
 ```
 
 Use [String.upcase/2](https://hexdocs.pm/elixir/String.html#upcase/2) to upcase `"hello"` to `"HELLO"`.
@@ -494,7 +495,7 @@ String.upcase("hello")
 </details>
 
 ```elixir
-"hello"
+String.upcase("hello")
 ```
 
 Use [String.downcase/2](https://hexdocs.pm/elixir/String.html#downcase/2) to dowcase `"HELLO"` to `"hello"`.
@@ -509,7 +510,7 @@ String.downcase("HELLO")
 </details>
 
 ```elixir
-"HELLO"
+String.downcase("HELLO")
 ```
 
 Use [String.split/3](https://hexdocs.pm/elixir/String.html#split/3) to split the following comma-separated list of strings into a list of words.
@@ -524,7 +525,7 @@ String.split("have,a,great,day", ",")
 </details>
 
 ```elixir
-"have,a,great,day"
+String.split("have,a,great,day", ",")
 ```
 
 Use [String.trim/1](https://hexdocs.pm/elixir/String.html#trim/1) to remove whitespace from the `"  hello!  "` string.
@@ -539,7 +540,7 @@ String.trim("  hello!  ")
 </details>
 
 ```elixir
-"  hello!  "
+String.trim("  hello!  ")
 ```
 
 ## The List Module
@@ -609,7 +610,7 @@ List.delete_at([2, 1, 3], 0)
 </details>
 
 ```elixir
-[2, 1, 3]
+List.delete_at([2, 1, 3], 0)
 ```
 
 Use [List.flatten/1](https://hexdocs.pm/elixir/List.html#flatten/1) to flatten the following list into `[1, 2, 3, 4, 5, 6, 7, 8, 9]`
@@ -624,7 +625,7 @@ List.flatten([1, 2, [3, 4, 5], 6, [7, [8, [9]]]])
 </details>
 
 ```elixir
-[1, 2, [3, 4, 5], 6, [7, [8, [9]]]]
+List.flatten([1, 2, [3, 4, 5], 6, [7, [8, [9]]]])
 ```
 
 Use [List.insert_at/3](https://hexdocs.pm/elixir/List.html#insert_at/3) to insert `2` into the following list to make `[1, 2, 3]`.
@@ -639,7 +640,7 @@ List.insert_at([1, 3], 1, 2)
 </details>
 
 ```elixir
-[1, 3]
+List.insert_at([1, 3], 1, 2)
 ```
 
 Use [List.last/2](https://hexdocs.pm/elixir/List.html#last/2) to retrieve the last element `10000` in a list from `1` to `10000`.
@@ -660,7 +661,7 @@ You might also use the piper operator `|>`.
 </details>
 
 ```elixir
-Enum.to_list(1..10000)
+List.last(Enum.to_list(1..10000))
 ```
 
 Use [List.update_at/3](https://hexdocs.pm/elixir/List.html#update_at/3) to subtract `2` from `4` in the following list to make `[1, 2, 3]`.
@@ -675,7 +676,7 @@ List.update_at([1, 4, 3], 1, fn elem -> elem - 2 end)
 </details>
 
 ```elixir
-[1, 4, 3]
+List.update_at([1, 4, 3], 1, fn el -> el - 2 end)
 ```
 
 Use [List.zip/1](https://hexdocs.pm/elixir/List.html#zip/1) to combine these two lists to make `[{"a", 1}, {"b", 2}, {"c", 3}]`.
@@ -695,6 +696,7 @@ List.zip([letters, numbers])
 ```elixir
 letters = ["a", "b", "c"]
 numbers = [1, 2, 3]
+List.zip([letters, numbers])
 ```
 
 ## The Map Module
@@ -749,7 +751,7 @@ Map.get(%{hello: "world"}, :hello)
 </details>
 
 ```elixir
-%{hello: "world"}
+Map.get(%{hello: "world"}, :hello)
 ```
 
 Use [Map.put/3](https://hexdocs.pm/elixir/Map.html#put/3) to add the key `:two` with the value `2` to the following map.
@@ -764,7 +766,7 @@ Map.put(%{one: 1}, :two, 2)
 </details>
 
 ```elixir
-%{one: 1}
+Map.put(%{one: 1}, :two, 2)
 ```
 
 Use [Map.keys/1](https://hexdocs.pm/elixir/Map.html#keys/1) to retrieve the keys for the following map.
@@ -779,7 +781,7 @@ Map.keys(%{key1: 1, key2: 2, key3: 3})
 </details>
 
 ```elixir
-%{key1: 1, key2: 2, key3: 3}
+Map.keys(%{key1: 1, key2: 2, key3: 3})
 ```
 
 Use [Map.delete/2](https://hexdocs.pm/elixir/Map.html#delete/2) to remove `:key1` from the following map.
@@ -794,7 +796,7 @@ Map.delete(%{key1: 1, key2: 2, key3: 3}, :key1)
 </details>
 
 ```elixir
-%{key1: 1, key2: 2, key3: 3}
+Map.delete(%{key1: 1, key2: 2, key3: 3}, :key2)
 ```
 
 Use [Map.merge/2](https://hexdocs.pm/elixir/Map.html#merge/2) to combine `%{one: 1}` and `%{two: 2}`.
@@ -809,7 +811,7 @@ Map.merge(%{one: 1}, %{two: 2})
 </details>
 
 ```elixir
-
+Map.merge(%{one: 1}, %{two: 2})
 ```
 
 Use [Map.update/4](https://hexdocs.pm/elixir/Map.html#update/4) or [Map.update!/3](https://hexdocs.pm/elixir/Map.html#update!/3) to update the `:count` key in this map to be `5` plus the existing value.
@@ -824,7 +826,7 @@ Map.update(%{count: 10}, :count, 0, fn count -> count + 5 end)
 </details>
 
 ```elixir
-%{count: 10}
+Map.update!(%{count: 10}, :count, fn el -> el + 5 end)
 ```
 
 Use [Map.values/1](https://hexdocs.pm/elixir/Map.html#values/1) to retrieve the values `[1, 2, 3]` in the following map.
@@ -839,7 +841,7 @@ Map.values(%{key1: 1, key2: 2, key3: 3})
 </details>
 
 ```elixir
-%{key1: 1, key2: 2, key3: 3}
+Map.values(%{key1: 1, key2: 2, key3: 3})
 ```
 
 ## The Keyword Module
@@ -901,7 +903,7 @@ Keyword.get([color: "red"], :color)
 </details>
 
 ```elixir
-[color: "red"]
+Keyword.get([color: "red"], :color)
 ```
 
 Use [Keyword.get/3](https://hexdocs.pm/elixir/Keyword.html#get/3) to access the value for the `:color` key in the following empty list. If the `:color` key does not exist, provide a default value of `"blue"`.
@@ -916,7 +918,7 @@ Keyword.get([], :color, "blue")
 </details>
 
 ```elixir
-[]
+Keyword.get([], :color, "blue")
 ```
 
 Use the [Keyword.keys/1](https://hexdocs.pm/elixir/Keyword.html#keys/1) function to list all of the keys in the following keyword list.
@@ -931,7 +933,7 @@ Keyword.keys([one: 1, two: 2, three: 3])
 </details>
 
 ```elixir
-[one: 1, two: 2, three: 3]
+Keyword.keys(one: 1, two: 2, three: 3)
 ```
 
 Use the [Keyword.keyword?/1](https://hexdocs.pm/elixir/Keyword.html#keyword?/1) function to determine if the following is a keyword list.
@@ -946,7 +948,7 @@ Keyword.keyword?([key: "value"])
 </details>
 
 ```elixir
-[key: "value"]
+Keyword.keyword?(key: "value")
 ```
 
 Use the [Keyword.keyword?/1](https://hexdocs.pm/elixir/Keyword.html#keyword?/1) function to determine if an empty list is a keyword list.
@@ -965,7 +967,7 @@ Keyword.keyword?([])
 </details>
 
 ```elixir
-[]
+Keyword.keyword?([])
 ```
 
 Use the [Keyword.keyword?/1](https://hexdocs.pm/elixir/Keyword.html#keyword?/1) function to determine if the following list is a keyword list.
@@ -982,7 +984,7 @@ Keyword.keyword?([1, 2, 3])
 </details>
 
 ```elixir
-[1, 2, 3]
+Keyword.keyword?([1, 2, 3])
 ```
 
 ## Further Reading
