@@ -117,7 +117,7 @@ Here's the same range converted into a list to help you visualize it. Once again
 learn more about what `Enum.to_list` is in a future lesson.
 
 ```elixir
-Enum.to_list(0..10//2)
+Enum.to_list(0..10//3)
 ```
 
 ### Your Turn
@@ -133,7 +133,7 @@ In the Elixir cell below, use [Enum.to_list/1](https://hexdocs.pm/elixir/Enum.ht
 </details>
 
 ```elixir
-
+Enum.to_list(3..9//3)
 ```
 
 ### Pattern Matching With Ranges
