@@ -102,6 +102,11 @@ defmodule Fibonacci do
     6765
   """
   def of(n) do
+    cond do
+      n == 0 -> 0
+      n == 1 -> 1
+      n > 1 -> of(n - 1) + of(n - 2)
+    end
   end
 end
 ```
