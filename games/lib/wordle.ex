@@ -2,26 +2,12 @@ defmodule Games.Wordle do
   @moduledoc """
 
   """
-  @spec play() :: list()
+  @spec play() :: [atom()]
   def play do
     target = "toast"
-    guess = IO.gets("Enter a five letter word:") |> String.trim()
-    feedback(target, guess)
+    guess = IO.gets("Enter a five letter word: ") |> String.trim() |> String.replace("\n","")
+    format_feedback(feedback(target, guess))
   end
-  @doc """
-  iex> Games.Wordle.feedback("aaaaa", "aaaaa")
-  [:green, :green, :green, :green, :green]
-
-  iex> Games.Wordle.feedback("aaaaa", "aaaab")
-  [:green, :green, :green, :green, :grey]
-
-  iex> Games.Wordle.feedback("abdce", "edcba")
-  [:yellow, :yellow, :yellow, :yellow, :yellow]
-
-  # If There Are Duplicate Characters In The Guess Prioritize Exact Matches.
-  iex> Games.Wordle.feedback("aaabb", "xaaaa")
-  [:grey, :green, :green, :yellow, :grey]
-  """
   @spec feedback(String.t(), String.t()) :: list(atom())
   def feedback(target, guess) do
     string1 = String.codepoints(target)
@@ -42,9 +28,16 @@ defmodule Games.Wordle do
       end)
   end
 
-#   defp format_feedback(feedback) do
-#     feedback
-#     |> Enum.join(", ")
-#     |> IO.ANSI.format()
-#   end
+defp format_feedback(feedback) do
+  formatted_feedback =
+    feedback
+    |> Enum.map(&feedback_color/1)
+    |> Enum.join(", ")
+
+  IO.puts(formatted_feedback)
+end
+
+defp feedback_color(:green), do: IO.ANSI.green() <> "green"
+defp feedback_color(:yellow), do: IO.ANSI.yellow() <> "yellow"
+defp feedback_color(:grey), do: IO.ANSI.light_black() <> "grey"
 end
