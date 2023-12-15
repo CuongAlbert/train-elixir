@@ -4,7 +4,7 @@ defmodule Games.Wordle do
   """
   @spec play() :: :ok
   def play do
-    target = "toast"
+    target = "aabbb"
     guess = IO.gets("Enter a five letter word: ") |> String.trim() |> String.replace("\n","")
     format_feedback(feedback(target, guess))
   end
