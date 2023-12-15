@@ -154,6 +154,9 @@ defmodule Sum do
   iex> Sum.list([1, 2, 3])
   6
   """
+  def list(list, sum \\ 0)
+  def list([], sum), do: sum
+  def list([head | tail], sum), do: list(tail, sum + head)
 end
 ```
 
