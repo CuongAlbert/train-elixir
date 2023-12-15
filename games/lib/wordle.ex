@@ -2,7 +2,7 @@ defmodule Games.Wordle do
   @moduledoc """
 
   """
-  @spec play() :: [atom()]
+  @spec play() :: :ok
   def play do
     target = "toast"
     guess = IO.gets("Enter a five letter word: ") |> String.trim() |> String.replace("\n","")
@@ -21,9 +21,6 @@ defmodule Games.Wordle do
           idx > 0 && g == String.at(guess, idx) && Enum.at(acc, idx) != :green -> :grey
           g in string1 -> :yellow
           true -> :grey
-          # s == g -> IO.puts(IO.ANSI.green() <> "green")
-          # g in String.codepoints(secret_word) -> IO.puts(IO.ANSI.yellow() <> "yellow")
-          # true -> IO.puts(IO.ANSI.light_black() <> "grey")
         end)
       end)
   end
