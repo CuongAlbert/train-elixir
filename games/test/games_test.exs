@@ -1,7 +1,7 @@
 ExUnit.start(auto_run: false)
 defmodule GamesTest do
   use ExUnit.Case
-  # doctest Games
+  doctest Games.Wordle
 
   test "feedback" do
     assert Games.Wordle.feedback("aaaaa","aaaaa") == [:green, :green, :green, :green, :green]
