@@ -1,4 +1,8 @@
 defmodule Games.GuessingGame do
+  @moduledoc """
+
+  """
+  @spec play() :: :ok
   def play do
     target = Enum.random(1..10)
     guess_loop(target, true, 5)

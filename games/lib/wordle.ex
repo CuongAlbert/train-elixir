@@ -1,23 +1,28 @@
 defmodule Games.Wordle do
+  @moduledoc """
+
+  """
+  @spec play() :: list()
   def play do
     secret_word = "toast"
     guess = IO.gets("Enter a five letter word:") |> String.trim()
     feedback(secret_word, guess)
   end
-@doc """
-iex> Games.Wordle.feedback("aaaaa", "aaaaa")
-[:green, :green, :green, :green, :green]
+  @doc """
+  iex> Games.Wordle.feedback("aaaaa", "aaaaa")
+  [:green, :green, :green, :green, :green]
 
-iex> Games.Wordle.feedback("aaaaa", "aaaab")
-[:green, :green, :green, :green, :grey]
+  iex> Games.Wordle.feedback("aaaaa", "aaaab")
+  [:green, :green, :green, :green, :grey]
 
-iex> Games.Wordle.feedback("abdce", "edcba")
-[:yellow, :yellow, :yellow, :yellow, :yellow]
+  iex> Games.Wordle.feedback("abdce", "edcba")
+  [:yellow, :yellow, :yellow, :yellow, :yellow]
 
-# If There Are Duplicate Characters In The Guess Prioritize Exact Matches.
-iex> Games.Wordle.feedback("aaabb", "xaaaa")
-[:grey, :green, :green, :yellow, :yellow]
-"""
+  # If There Are Duplicate Characters In The Guess Prioritize Exact Matches.
+  iex> Games.Wordle.feedback("aaabb", "xaaaa")
+  [:grey, :green, :green, :yellow, :yellow]
+  """
+  @spec feedback(String.t(), String.t()) :: list(atom())
   def feedback(secret_word, guess) do
     Enum.zip(String.codepoints(secret_word), String.codepoints(guess))
     |> Enum.map(fn {s, g} ->

@@ -1,4 +1,7 @@
 defmodule Games.RockPaperScissors do
+  @moduledoc """
+
+  """
   def play do
     ai_choice = Enum.random(["rock", "paper", "scissors"])
     IO.puts("AI choice: #{ai_choice}")
