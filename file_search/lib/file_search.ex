@@ -3,7 +3,6 @@ defmodule FileSearch do
   Documentation for `FileSearch`.
   """
 
-  @spec main(any()) :: any()
   @doc """
   Hello world.
 
@@ -13,8 +12,12 @@ defmodule FileSearch do
       :world
 
   """
-  def main(_args) do
-    by_extension("_build")
+  def main(args) do
+    {opts, _, _} = OptionParser.parse(args, switches: [type: :boolean])
+    case opts[:type] do
+      true -> by_extension(".")
+      _ -> all(".")
+    end |> IO.inspect()
   end
   def all(folder) do
     File.ls!(folder)
