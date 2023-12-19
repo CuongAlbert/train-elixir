@@ -79,6 +79,7 @@ defmodule TodoList do
       []
   """
   def list do
+    Path.wildcard("list")
   end
 
   @doc """
@@ -92,6 +93,7 @@ defmodule TodoList do
       ["task 2", "task 1"]
   """
   def add(item) do
+    File.write!("/list", :erlang.term_to_binary([item | list()]))
   end
 
   @doc """
@@ -105,6 +107,7 @@ defmodule TodoList do
       ["task 2", "task 1"]
   """
   def complete(item) do
+    File.write!("./list", :erlang.term_to_binary(list() -- [item]))
   end
 end
 ```
