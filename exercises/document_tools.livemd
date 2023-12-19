@@ -101,6 +101,11 @@ defmodule Document do
       3
   """
   def word_count(file_name) do
+    File.stream!(file_name)
+    |> Stream.map(fn l ->
+      l |> String.split(" ", trim: true) |> Enum.count()
+    end)
+    |> Enum.sum()
   end
 
   @doc ~S"""
@@ -113,6 +118,17 @@ defmodule Document do
       3
   """
   def line_count(file_name) do
+    file = File.open!(file_name)
+    count = count_line(file)
+    File.close(file_name)
+    count
+  end
+
+  defp count_line(file, count \\ 0) do
+    case IO.read(file, :line) do
+      :eof -> count
+      _ -> count_line(file, count + 1)
+    end
   end
 
   @doc ~S"""
@@ -126,6 +142,15 @@ defmodule Document do
       "1. one\n2. two\n3. three"
   """
   def add_line_numbers(file_name) do
+    new_content =
+      File.stream!(file_name)
+      |> Stream.with_index()
+      |> Stream.map(fn {l, idx} ->
+        "#{idx + 1}. #{l}"
+      end)
+      |> Enum.join()
+
+    File.write!(file_name, new_content)
   end
 end
 ```
