@@ -174,7 +174,7 @@ pid =
     IO.puts("I started")
     Process.sleep(5000)
     IO.puts("I finished")
-    Process.exit(pid, :kill)
+    # Process.exit(pid, :kill)
   end)
 ```
 
@@ -183,10 +183,10 @@ Use [Kernel.spawn_link/1](https://hexdocs.pm/elixir/Kernel.html#spawn_link/1) an
 Notice that the Livebook does not crash. Switch the exit reason to `:kill` and notice that the Livebook does crash. Comment out your solution to avoid crashing Livebook.
 
 ```elixir
-pid =
+pid1 =
   spawn_link(fn ->
     # Process.sleep(5000)
-    Process.exit(self(), :normal)
+    Process.exit(self(), :kill)
   end)
 ```
 
