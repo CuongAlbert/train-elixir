@@ -103,23 +103,31 @@ defmodule ScoreTracker do
   # Client API
 
   def start_link(_opts) do
+    GenServer.start_link(__MODULE__, [])
   end
 
-  def score(score_tracker_pid, amount) do
+  def add_points(score_tracker_pid, amount) do
+    GenServer.cast(score_tracker_pid, {:add_points, amount})
   end
 
   def current_score(score_tracker_pid) do
+    GenServer.call(score_tracker_pid, :current_score)
   end
 
   # Server API
-
+  @impl true
   def init(_init_arg) do
+    {:ok, 0}
   end
 
+  @impl true
   def handle_cast({:add_points, amount}, state) do
+    {:noreply, amount + state}
   end
 
+  @impl true
   def handle_call(:current_score, _from, state) do
+    {:reply, state, state}
   end
 end
 ```
@@ -217,16 +225,40 @@ defmodule MultiplayerScoreTracker do
   """
   use GenServer
 
-  def start_link(_opts) do
+  @impl true
+  def init(_state) do
+    {:ok, %{}}
   end
 
-  def add_points(multiplayer_score_tracker_pid, player_name, amount) do
+  @impl true
+  def handle_cast({:add_points, player_name, points}, state) do
+    {:noreply, Map.update(state, player_name, points, fn cur -> cur + points end)}
+  end
+
+  @impl true
+  def handle_call(:all_score, _from, state) do
+    {:reply, state, state}
+  end
+
+  @impl true
+  def handle_call({:current_score, player_name}, _from, state) do
+    {:reply, state[player_name], state}
+  end
+
+  def start_link(_opts) do
+    GenServer.start_link(__MODULE__, [])
+  end
+
+  def add_points(multiplayer_score_tracker_pid, player_name, points) do
+    GenServer.cast(multiplayer_score_tracker_pid, {:add_points, player_name, points})
   end
 
   def all_scores(multiplayer_score_tracker_pid) do
+    GenServer.call(multiplayer_score_tracker_pid, :all_score)
   end
 
   def current_score(multiplayer_score_tracker_pid, player_name) do
+    GenServer.call(multiplayer_score_tracker_pid, {:current_score, player_name})
   end
 end
 ```
