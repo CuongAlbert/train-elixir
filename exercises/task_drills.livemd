@@ -381,7 +381,7 @@ task =
       Process.sleep(5000)
       raise "error"
     end,
-    restart: :trasient
+    restart: :transient
   )
 ```
 
