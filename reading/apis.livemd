@@ -385,7 +385,7 @@ url = "https://api.openai.com/v1/images/generations"
 
 headers = [
   {"Content-Type", "application/json"},
-  {"Authorization", "Bearer $OPENAI_API_TOKEN"}
+  {"Authorization", "Bearer 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"}
 ]
 
 body =
@@ -472,7 +472,27 @@ IO.puts(message)
 </details>
 
 ```elixir
+request =
+  Finch.build(
+    method = :post,
+    url = "https://api.openai.com/v1/chat/completions",
+    headers = [
+      {"Content-Type", "application/json"},
+      {"Authorization", "Bearer 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"}
+    ],
+    body =
+      Jason.encode!(%{
+        model: "gpt-3.5-turbo",
+        message: [%{role: "user", content: "Hello!"}]
+      })
+  )
+  |> Finch.request!(MyApp.Finch)
 
+decoded_body = Jason.decode!(request.body)
+
+[%{"message" => %{"content" => message}}] = decoded_body["choices"]
+
+IO.puts(message)
 ```
 
 ## Commit Your Progress
