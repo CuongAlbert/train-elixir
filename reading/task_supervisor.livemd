@@ -81,15 +81,15 @@ Kino.Process.sup_tree(supervisor_pid)
 Now we can spawn supervised [Task](https://hexdocs.pm/elixir/Task.html) processes under `MyTaskSupervisor` using `Task.Supervisor.async/3`.
 
 ```elixir
-task =
-  Task.Supervisor.async(MyTaskSupervisor, fn ->
-    IO.puts("Task Started")
-    Process.sleep(1000)
-    IO.puts("Task Finished")
-    "response!"
-  end)
+# task =
+#   Task.Supervisor.async(MyTaskSupervisor, fn ->
+#     IO.puts("Task Started")
+#     Process.sleep(1000)
+#     IO.puts("Task Finished")
+#     "response!"
+#   end)
 
-Task.await(task)
+# Task.await(task)
 ```
 
 We can spawn many tasks under the supervisor.
