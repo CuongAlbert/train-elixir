@@ -24,14 +24,18 @@ defmodule Stack do
 
   @impl true
   def handle_call(:pop, _from, state) do
-    {ele, new} = List.pop_at(state, -1, nil)
-    {:reply, ele, new}
+    [head | tail] = state
+    {:reply, head, tail}
   end
 
   # Client API
   @spec start_link(any()) :: :ignore | {:error, any()} | {:ok, pid()}
   def start_link(_otp) do
-    GenServer.start_link(__MODULE__, [])
+    children = [
+      {Stack, []}
+    ]
+    Supervisor.start_link(children, strategy: :one_for_one)
+    # GenServer.start_link(__MODULE__, [])
   end
 
   @spec push(atom() | pid() | {atom(), any()} | {:via, atom(), any()}, any()) :: :ok
@@ -43,5 +47,4 @@ defmodule Stack do
   def pop(pid) do
     GenServer.call(pid, :pop)
   end
-
 end
