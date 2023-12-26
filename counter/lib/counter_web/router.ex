@@ -16,9 +16,10 @@ defmodule CounterWeb.Router do
 
   scope "/", CounterWeb do
     pipe_through :browser
-
-    get "/", CounterController, :count
-    post "/", CounterController, :increment
+    get "/", PageController, :home
+    get "/random", RandomNumberController, :random
+    get "/count", CounterController, :count
+    post "/count", CounterController, :increment
   end
 
   # Other scopes may use custom stacks.

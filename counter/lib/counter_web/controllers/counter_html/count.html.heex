@@ -1,3 +1,22 @@
+<.link
+  navigate={~p"/"}
+  class="bg-cyan-500 hover:bg-cyan-400 text-2xl p-4 mt-4 rounded-full inline-block"
+>
+  Home
+</.link>
+<.link
+  navigate={~p"/random"}
+  class="bg-cyan-500 hover:bg-cyan-400 text-2xl p-4 mt-4 rounded-full inline-block"
+>
+  About
+</.link>
+<.link
+  navigate={~p"/count"}
+  class="bg-cyan-500 hover:bg-cyan-400 text-2xl p-4 mt-4 rounded-full inline-block"
+>
+  Projects
+</.link>
+
 <h1 class="text-4xl">The current count is: <%= @count %></h1>
 <%!-- <.link
   navigate={~p"/?count=#{if @count == 0 do
@@ -9,7 +28,7 @@
 >
   Increment
 </.link> --%>
-<.form :let={f} for={%{}} action={~p"/"}>
+<.form :let={f} for={%{}} action={~p"/count"}>
   <.input type="number" field={f[:increment_by]} value={1} />
   <.input type="hidden" field={f[:count]} value={@count} />
   <.button class="mt-2">Increment</.button>
