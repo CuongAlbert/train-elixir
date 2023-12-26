@@ -19,9 +19,7 @@ defmodule Pokelixir do
   """
 
 def get(name) do
-    children = [
-      {Finch, name: MyFinch}
-    ]
+
     Finch.start_link(name: MyFinch)
     response = Finch.build(:get, "https://pokeapi.co/api/v2/pokemon/#{name}") |> Finch.request!(MyFinch)
     pokemon_data = Jason.decode!(response.body)
@@ -41,15 +39,20 @@ def get(name) do
     }
   end
 
-  def all() do
-    children = [
-      {Finch, name: MyFinch}
-    ]
+  def all(url \\ "https://pokeapi.co/api/v2/pokemon") do
     Finch.start_link(name: MyFinch)
-    all_response = Finch.build(:get, "https://pokeapi.co/api/v2/pokemon") |> Finch.request!(MyFinch)
+    all_response = Finch.build(:get, url) |> Finch.request!(MyFinch)
     pokemon_data = Jason.decode!(all_response.body)
-    total = pokemon_data["count"]
-    # pokemon_data["results"] |> Enum.map(fn pokemon -> get(pokemon["name"]) end)
-    1..total |> Enum.map(fn id -> get(id) end)
+    next = pokemon_data["next"]
+    IO.puts(next)
+    list = pokemon_data["results"]
+    |> Enum.map(fn pokemon -> Task.async(fn -> get(pokemon["name"]) end) end)
+    |> Task.await_many()
+    case next do
+      nil -> list
+      _ -> [list | all(next)]
+    end
+    # 1..100
+    # |> Enum.map(fn id -> Task.async(fn -> get(id) end) end) |> Task.await_many()
   end
 end
